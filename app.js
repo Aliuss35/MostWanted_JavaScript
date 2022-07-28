@@ -124,8 +124,7 @@ function searchByName(people) {
  */
 function displayPeople(people) {
   alert(
-    people
-      .map(function (person) {
+    people.map(function (person) {
         return `${person.firstName} ${person.lastName}`;
       })
       .join("\n")
@@ -192,13 +191,8 @@ function chars(input) {
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
 function findPersonFamily(person, people){
-  let parentids = person.parents
-  for (let i = 0; i < parentids.length; i++) {
     let parents = people.filter(function (el) {
-      if (parentids[i] == el.id) {
-        return true
-      }
-    })
-    alert(parents);  
-  }
-} 
+      return person.parents.includes(el.id)
+      })
+     displayPeople(parents)
+    }
