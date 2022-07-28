@@ -192,10 +192,13 @@ function chars(input) {
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
 function findPersonFamily(person, people){
-  let personFamily = `parents: ${person.parents}`;
-  personFamily += `currentSpouse: ${person.currentSpouse}`;
-  personFamily += `Siblings: ${person.personFamily}`;
-
-  alert(findPersonFamily);
-
-}
+  let parentids = person.parents
+  for (let i = 0; i < parentids.length; i++) {
+    let parents = people.filter(function (el) {
+      if (parentids[i] == el.id) {
+        return true
+      }
+    })
+    alert(parents);  
+  }
+} 
