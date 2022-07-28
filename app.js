@@ -3,7 +3,7 @@
     Description: Most Wanted Starter Code
 */
 //////////////////////////////////////////* Beginning Of Starter Code *//////////////////////////////////////////
-
+//comment for test
 "use strict";
 //? Utilize the hotkey to hide block level comment documentation
 ////* Mac: Press "CMD"+"K" and then "CMD"+"/"
@@ -124,7 +124,8 @@ function searchByName(people) {
  */
 function displayPeople(people) {
   alert(
-    people.map(function (person) {
+    people
+      .map(function (person) {
         return `${person.firstName} ${person.lastName}`;
       })
       .join("\n")
@@ -190,9 +191,9 @@ function chars(input) {
 
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
-function findPersonFamily(person, people){
-    let parents = people.filter(function (el) {
-      return person.parents.includes(el.id)
-      })
-     displayPeople(parents)
-    }
+function findPersonFamily(person, people) {
+  let parents = people.filter(function (el) {
+    return person.parents.includes(el.id);
+  });
+  displayPeople(parents);
+}
