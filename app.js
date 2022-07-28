@@ -3,7 +3,7 @@
     Description: Most Wanted Starter Code
 */
 //////////////////////////////////////////* Beginning Of Starter Code *//////////////////////////////////////////
-//comment for test
+//comment for test//comment for test
 "use strict";
 //? Utilize the hotkey to hide block level comment documentation
 ////* Mac: Press "CMD"+"K" and then "CMD"+"/"
