@@ -191,11 +191,10 @@ function chars(input) {
 
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
-function findPersonFamily(person, people){
+function findPersonFamily(person, people) {
   let personFamily = `parents: ${person.parents}`;
   personFamily += `currentSpouse: ${person.currentSpouse}`;
   personFamily += `Siblings: ${person.personFamily}`;
 
   alert(findPersonFamily);
-
 }
