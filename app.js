@@ -130,7 +130,16 @@ function displayPeople(people) {
       })
       .join("\n")
   );
+
 }
+// function displayPeople2(people) {
+//   alert(
+//     people.map(function (person) {
+//         return `${}${person.firstName} ${person.lastName}`;
+//       })
+//       .join("\n")
+//   );
+// }
 // End of displayPeople()
 
 /**
@@ -212,7 +221,8 @@ function findPersonFamily(person, people) {
   let siblings = people.filter(function (el) {
     return person.parents.includes(el.parents);
   });
-  let familymembers = [`parents: ${parents}`,`spouse: ${spouse}`,`siblings: ${siblings}`]
+  let familymembers = parents.concat(spouse, siblings);
+  console.log(familymembers)
   displayPeople(familymembers);
 }
 
