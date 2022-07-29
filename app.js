@@ -198,3 +198,17 @@ function findPersonFamily(person, people) {
   });
   displayPeople(parents);
 }
+
+function findPersonDescendants(person, people) {
+  let descendants = people.filter(function (el) {
+    if (el.parents.includes(person.id)) {
+      return true;
+    }
+    else if(descendants += people.filter(function (grand)))
+     
+      return el.id.includes(grand.parents);
+    
+  }
+  });
+  displayPeople(descendants);
+}
