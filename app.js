@@ -200,15 +200,24 @@ function findPersonFamily(person, people) {
 }
 
 function findPersonDescendants(person, people) {
+  let totals = [];
   let descendants = people.filter(function (el) {
     if (el.parents.includes(person.id)) {
-      return true;
+      totals.push(el);
+      let grands = people.filter(function (elem) {
+        if (elem.parents.includes(el.id)) {
+          totals.push(elem);
+          return true;
+        }
+      });
     }
-    else if(descendants += people.filter(function (grand)))
-     
-      return el.id.includes(grand.parents);
-    
-  }
   });
-  displayPeople(descendants);
+
+  // let grands = descendants.filter(function (el) {
+  //   if (.includes()) {
+  //     return true;
+  //   }
+  // });
+  // const alldescendants = descendants.concat(grands);
+  displayPeople(totals);
 }
