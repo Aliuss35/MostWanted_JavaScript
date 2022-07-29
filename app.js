@@ -125,8 +125,7 @@ function searchByName(people) {
  */
 function displayPeople(people) {
   alert(
-    people
-      .map(function (person) {
+    people.map(function (person) {
         return `${person.firstName} ${person.lastName}`;
       })
       .join("\n")
@@ -193,13 +192,34 @@ function chars(input) {
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
 function findPersonFamily(person, people) {
-  let parents = people.filter(function (el) {
-    return person.parents.includes(el.id);
+  let familymembers = people.filter(function (el) {
+    if (person.parents.includes(el.id)) return true;
+    else if (person.currentSpouse.includes(el.id)) return true
+    else if (person.parents.includes(el.parents)) return true
   });
-  displayPeople(parents);
+  displayPeople(familymembers);
 }
 
+//   let parents = people.filter(function (el) {
+//     return person.parents.includes(el.id);
+//   });
+//   let spouse = people.filter(function (el) {
+//     return  person.currentSpouse.includes(el.id);
+//   });
+//   let siblings = people.filter(function (el) {
+//     return person.parents.includes(el.parents);
+//   });
+//   let familymembers = [`parents: ${parents}`,`spouse: ${spouse}`,`siblings: ${siblings}`]
+//   displayPeople(familymembers);
+// }
+
 function findPersonDescendants(person, people) {
+//   let descendants = people.filter(function (el) {
+//     return el.parents.includes(person.id);
+//   });
+//   displayPeople(descendants);
+// }
+
   let totals = [];
   let descendants = people.filter(function (el) {
     if (el.parents.includes(person.id)) {
@@ -212,6 +232,9 @@ function findPersonDescendants(person, people) {
       });
     }
   });
+  displayPeople(totals);
+}
+
 
   // let grands = descendants.filter(function (el) {
   //   if (.includes()) {
@@ -219,5 +242,3 @@ function findPersonDescendants(person, people) {
   //   }
   // });
   // const alldescendants = descendants.concat(grands);
-  displayPeople(totals);
-}
