@@ -125,12 +125,12 @@ function searchByName(people) {
  */
 function displayPeople(people) {
   alert(
-    people.map(function (person) {
+    people
+      .map(function (person) {
         return `${person.firstName} ${person.lastName}`;
       })
       .join("\n")
   );
-
 }
 // function displayPeople2(people) {
 //   alert(
@@ -201,37 +201,37 @@ function chars(input) {
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
 function findPersonFamily(person, people) {
-//   let familymembers = people.filter(function (el) {
-//     if (person.parents.includes(el.id)) {
-//       return true}
-//     else if (person.currentSpouse == el.id) {
-//       return true}
-//     else if (person.parents.includes(el.parents)) {
-//       return true}
-//   });
-//   displayPeople(familymembers);
-// }
+  //   let familymembers = people.filter(function (el) {
+  //     if (person.parents.includes(el.id)) {
+  //       return true}
+  //     else if (person.currentSpouse == el.id) {
+  //       return true}
+  //     else if (person.parents.includes(el.parents)) {
+  //       return true}
+  //   });
+  //   displayPeople(familymembers);
+  // }
 
   let parents = people.filter(function (el) {
     return person.parents.includes(el.id);
   });
   let spouse = people.filter(function (el) {
-    return  person.currentSpouse == el.id;
+    return person.currentSpouse == el.id;
   });
   let siblings = people.filter(function (el) {
     return person.parents.includes(el.parents);
   });
   let familymembers = parents.concat(spouse, siblings);
-  console.log(familymembers)
+  console.log(familymembers);
   displayPeople(familymembers);
 }
 
 function findPersonDescendants(person, people) {
-//   let descendants = people.filter(function (el) {
-//     return el.parents.includes(person.id);
-//   });
-//   displayPeople(descendants);
-// }
+  //   let descendants = people.filter(function (el) {
+  //     return el.parents.includes(person.id);
+  //   });
+  //   displayPeople(descendants);
+  // }
 
   let totals = [];
   let descendants = people.filter(function (el) {
@@ -248,10 +248,20 @@ function findPersonDescendants(person, people) {
   displayPeople(totals);
 }
 
-
-  // let grands = descendants.filter(function (el) {
-  //   if (.includes()) {
-  //     return true;
-  //   }
-  // });
-  // const alldescendants = descendants.concat(grands);
+// let grands = descendants.filter(function (el) {
+//   if (.includes()) {
+//     return true;
+//   }
+// });
+// const alldescendants = descendants.concat(grands);
+function searchByTraits(people) {
+  let response = prompt("what is your response: ");
+  // let responsearray = response.split(";")
+  // console.log(responsearray)
+  let result = people.filter(function (el) {
+    return el.hasOwnProperty(response);
+  });
+  console.log(result);
+  // app(people);
+  displayPeople(result);
+}
