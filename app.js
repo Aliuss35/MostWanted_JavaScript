@@ -227,11 +227,6 @@ function findPersonFamily(person, people) {
 // }
 
 function findPersonDescendants(person, people) {
-  //   let descendants = people.filter(function (el) {
-  //     return el.parents.includes(person.id);
-  //   });
-  //   displayPeople(descendants);
-  // }
 
   let totals = [];
   let descendants = people.filter(function (el) {
@@ -249,8 +244,10 @@ function findPersonDescendants(person, people) {
 }
 
 function searchByTraits(people) {
+
   let peopleData = people
   let happy = false
+
   while(!happy){
     let userInput = prompt("Which Traits would you like to search?\n press '1' for gender \n press '2' for eye color \n enter 3 if you want to exit");
     if (userInput == 1) peopleData = searchByGender(peopleData)
@@ -261,8 +258,6 @@ function searchByTraits(people) {
   let result = people.filter(function (el) {
     return el.hasOwnProperty(response);
   });
-  // console.log(result);
-  // app(people);
   displayPeople(result);
 }
 
@@ -275,4 +270,15 @@ function searchByGender(people){
   });
   displayPeople(genderResults)
   return genderResults
+}
+
+function searchByEyeColor(people){
+  let eyeColorInput = prompt("what eye color?")
+  let eyeColorResult = people.filter(function(person){
+    if (eyeColorInput === person.eyeColor){
+      return true
+    }
+  });
+  displayPeople(eyeColorResult)
+  return eyeColorResult
 }
