@@ -249,16 +249,30 @@ function findPersonDescendants(person, people) {
 }
 
 function searchByTraits(people) {
-  let userInput = prompt("Which Traits would you like to search?\n press '1' for gender \n press '2' for eye color");
-  if (userInput == 1) searchByGender(people)
+  let peopleData = people
+  let happy = false
+  while(!happy){
+    let userInput = prompt("Which Traits would you like to search?\n press '1' for gender \n press '2' for eye color \n enter 3 if you want to exit");
+    if (userInput == 1) peopleData = searchByGender(peopleData)
+    if (userInput == 2) peopleData = searchByEyeColor(peopleData)
+    if (userInput == 3) happy = true
+  }
+
   let result = people.filter(function (el) {
     return el.hasOwnProperty(response);
   });
-  console.log(result);
+  // console.log(result);
   // app(people);
   displayPeople(result);
 }
 
 function searchByGender(people){
   let genderInput = prompt("what gender? Male or Female?")
+  let genderResults = people.filter(function(person){
+    if (genderInput === person.gender){
+      return true
+    }
+  });
+  displayPeople(genderResults)
+  return genderResults
 }
